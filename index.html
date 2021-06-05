@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1 style="text-align:center; margin-top:20%;">
+      Let's play Rock Paper Scissors!<br />Refresh to play again!
+    </h1>
+    <script type="text/javascript">
+      // TODO: Create an array of the three game choices (Rock, Paper, or Scissors).
+      var gameChoices = ['r','s','p'];
+
+      //variable win, tie, lose
+      var win = 0;
+      var tie = 0;
+      var lose = 0;
+
+      //creat circulation game with for loop
+      for (var i=0; i<3; i++)
+      {
+        //set array for gameChoice length [0,1,2]
+        var comp = gameChoices[Math.floor(Math.random()*gameChoices.length)];
+
+        //set gamer 
+        var gamer = prompt("Enter the 'r', 's' 'p' to play the game");
+
+        //set lowercase, if user type upppercase
+        gamer = gamer.toLowerCase();
+
+        //set gamer choose one of 'r' 'p' 's' to start the game
+        if (gamer === 'r' || gamer === 's' || gamer === 'p')
+        {
+            alert("The computer chose " + comp);
+
+            //set win / tie / lose
+            if (gamer === 'r' && comp === 's' ||
+                gamer === 's' && comp === 'p' ||
+                gamer === 'p' && comp === 'r')
+                {
+                  win++
+                  alert("You won " + win + " time.");
+                }
+                else if (gamer === 'r' && comp === 'r' ||
+                         gamer === 's' && comp === 's' ||
+                         gamer === 'p' && comp === 'p')
+                         {
+                           tie++
+                           alert("You tied " + tie + " time.");
+                         }
+                         else 
+                         {
+                           lose++
+                           alert("You lost " + lose + " time.")
+                         }
+        }
+        else 
+        {
+          alert("Type 'r', 'p', 's'");
+        }
+      }
+      //once game over, pop the alert box for result
+      alert('Total wins: ' + win + '\nTotal tied: ' + tie + '\nTotal losses: ' + lose);
+    </script>
+  </body>
+</html>
